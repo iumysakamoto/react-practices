@@ -49,6 +49,8 @@ const formFields = [
 ];
 
 const App = () => {
+  const [mensagem, setMensagem] = React.useState('');
+
   const [form, setForm] = React.useState(
     formFields.reduce((acc, field) => {
       return {
@@ -80,6 +82,13 @@ const App = () => {
 
   return (
     <>
+      <form>
+        <textarea value={mensagem}
+        onChange={({target}) => setMensagem(target.value)} 
+        rows="5"
+        />
+        <p>{mensagem}</p>
+      </form>
       <form onSubmit={handleSubmit}>
         {formFields.map(({ id, label, type }) => (
           <div key={id}>
