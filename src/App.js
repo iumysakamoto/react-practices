@@ -80,6 +80,8 @@ const App = () => {
     });
   };
 
+  const [select, setSelect] = React.useState('');
+  
   return (
     <>
       <form>
@@ -98,6 +100,15 @@ const App = () => {
         ))}
         {response && response.ok && <p>Formulário Enviado</p>}
         <button>Enviar</button>
+      </form>
+      <form>
+        <select value={select} onChange={({target}) => setSelect(target.value)} id="produtos">
+          <option value="" disabled>Selecione</option>
+          <option value="notebook">Notebook</option>
+          <option value="smartphone">Smartphone</option>
+          <option value="tablet">Tablet</option>
+        </select>
+        {select}
       </form>
     </>
   );
